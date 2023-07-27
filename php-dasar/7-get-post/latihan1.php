@@ -1,13 +1,23 @@
-<?php
-// $mahasiswa = [
-//   ["Juan Axl", "012012821", "Teknik Informatika", "juanaxl@trunojoyo.ac.id"],
-//   ["Zaka Putra", "012028282", "Teknik Industri", "zakaputra@trunojoyo.ac.id"],
-//   ["Erik", "001201201", "Teknik Planologi", "erik@gmail.com"]
-// ];
+<?php 
+// Variable Scope / linkup variabel
+// $x = 10;
 
-// Array Associative
-// definisinya seperti array numerik, tetapi
-// key-nya adalah string yang kita buat sendiri
+// function tampilX() {
+//   global $x;
+//   echo $x;
+// }
+
+// tampilX();
+
+
+
+// SUPERGLOBALS
+// variable global milik PHP
+// merupakan array associative
+// echo $_SERVER["SERVER_NAME"];
+
+
+// $_GET
 $mangas = [
   [
     "judul" => "Shingeki no Kyojin",
@@ -81,7 +91,6 @@ $mangas = [
   ],
 
 ];
-// echo $mahasiswa[1]["tugas"][1];
 
 
 ?>
@@ -90,29 +99,16 @@ $mangas = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Mahasiswa</title>
-  <style>
-    img {
-      width: 100px;
-    }
-  </style>
+  <title>GET</title>
 </head>
 <body>
-  
-<h1>Daftar Manga</h1>
-
-<?php foreach ($mangas as $manga) : ?>
+  <h1>Daftar Manga</h1>
   <ul>
-    <li>
-      <img src="img/<?= $manga["cover"] ?>" alt="">
-    </li>
-    <li>Judul : <?= $manga["judul"] ?></li>
-    <li>Tahun Terbit : <?= $manga["tahun"] ?></li>
-    <li>Author : <?= $manga["author"] ?></li>
-    <li>Status : <?= $manga["status"] ?></li>
+    <?php foreach($mangas as $manga) : ?>
+      <li>
+        <a href="latihan2.php?judul=<?= $manga["judul"]; ?>&tahun=<?= $manga["tahun"] ?>&author=<?= $manga["author"] ?>&status=<?= $manga["status"] ?>&cover=<?= $manga["cover"] ?>"><?= $manga["judul"]; ?></a> 
+      </li>
+    <?php endforeach; ?>
   </ul>
-<?php endforeach; ?>
-
-
 </body>
 </html>
