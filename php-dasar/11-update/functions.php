@@ -15,7 +15,7 @@ function query($query) {
   return $rows;
 }
 
-// function menambahkan data ke tabel dalam database
+// function menambahkan data ke tabel manga dalam database
 function tambah($data) {
   global $conn;
   // ambil data dari tiap elemen dalam form
@@ -37,15 +37,43 @@ function tambah($data) {
   return mysqli_affected_rows($conn);
 }
 
-// function menghapus data di tabel dalam database
+
+// function menghapus data di tabel manga dalam database
 function hapus($id) {
   global $conn;
   // menghapus data berdasarkan id
   mysqli_query($conn, "DELETE FROM manga WHERE id = $id");
-
+  
   // mengembalikan nilai dari jumlah baris yang berubah pada tabel
   return mysqli_affected_rows($conn);
 }
 
+
+// function ubah data di tabel manga dalam database
+function ubah($data) {
+  global $conn;
+  // ambil data dari tiap elemen dalam form
+  $id = $data["id"];
+  $judul = htmlspecialchars($data["judul"]);
+  $author = htmlspecialchars($data["author"]);
+  $tahun = htmlspecialchars($data["tahun"]);
+  $status = htmlspecialchars($data["status"]);
+  $cover = htmlspecialchars($data["cover"]);
+
+  // query insert data
+  $query = "UPDATE manga SET
+              judul = '$judul',
+              author = '$author',
+              tahun = '$tahun',
+              status = '$status',
+              cover = '$cover'
+            WHERE id = $id
+          ";
+          // value diurutkan sesuai field dalam tabel
+  mysqli_query($conn, $query);
+
+  // mengembalikan nilai dari jumlah baris yang berubah pada tabel
+  return mysqli_affected_rows($conn);
+}
 
 ?>
