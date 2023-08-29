@@ -4,7 +4,7 @@
 $conn = mysqli_connect("localhost", "root", "", "phpdasar");
 
 // ambil data dari tabel manga / query data manga
-// mysqli_query("<koneksi ke database>");
+// mysqli_query("<koneksi ke database>", "<query yang akan diambil>");
 $result = mysqli_query($conn, "SELECT * FROM manga");
 // var_dump($result);
 // if( !$result ) {
@@ -32,7 +32,7 @@ $result = mysqli_query($conn, "SELECT * FROM manga");
   <title>Halaman Admin</title>
 </head>
 <body>
-  <h1>Daftar Mahasiswa</h1>
+  <h1>Daftar Manga</h1>
 
   <table border="1" cellpadding="10" cellspacing="0">
     <tr>

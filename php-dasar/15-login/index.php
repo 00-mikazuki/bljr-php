@@ -22,7 +22,7 @@ if(isset($_POST["cari"])) {
   <title>Halaman Admin</title>
 </head>
 <body>
-  <h1>Daftar Mahasiswa</h1>
+  <h1>Daftar Manga</h1>
 
   <a href="tambah.php">Tambah data manga</a>
   <br><br>
