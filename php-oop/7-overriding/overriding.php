@@ -37,6 +37,7 @@ class Komik extends Produk {
     $this->jmlHalaman = $jmlHalaman;
   }
 
+  // overriding
   public function getInfoProduk()
   {
     $str =  "Komik : ". parent::getInfoProduk() ." - {$this->jmlHalaman} Halaman";
@@ -53,6 +54,7 @@ class Game extends Produk {
     $this->waktuMain = $waktuMain;
   }
 
+  // overriding
   public function getInfoProduk()
   {
     $str =  "Game : ". parent::getInfoProduk() ." ~ {$this->waktuMain} Jam";

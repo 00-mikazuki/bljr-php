@@ -2,19 +2,11 @@
 
 class Produk {
   // property
-
-  // visibility keyword: 
-  // public: dimana saja, 
-  // protected: class dan turunannya, 
-  // private: class tertentu
-
-  public  $judul,
+  private $judul,
           $penulis,
-          $penerbit;
-          
-  protected $diskon = 0;
-
-  private $harga;
+          $penerbit,
+          $harga,
+          $diskon = 0;
 
   // constructor
   public function __construct($judul = "judul", $penulis = "penulis", $penerbit = "penerbit", $harga = 0) {
@@ -25,6 +17,44 @@ class Produk {
   }
 
   // method
+  // setter
+  public function setJudul($judul) {
+    $this->judul = $judul;
+  }
+
+  public function setPenulis($penulis) {
+    $this->penulis = $penulis;
+  }
+  
+  public function setPenerbit($penerbit) {
+    $this->penerbit = $penerbit;
+  }
+  
+  public function setHarga($harga) {
+    $this->harga = $harga;
+  }
+
+  public function setDiskon($diskon) {
+    $this->diskon = $diskon;
+  }
+
+  // getter
+  public function getJudul() {
+    return $this->judul;
+  }
+
+  public function getPenulis() {
+    return $this->penulis;
+  }
+  
+  public function getPenerbit() {
+    return $this->penerbit;
+  }
+
+  public function getDiskon() {
+    return $this->diskon;
+  }
+
   public function getLabel() {
     return "$this->penulis, $this->penerbit";
   }
@@ -64,9 +94,6 @@ class Game extends Produk {
     $this->waktuMain = $waktuMain;
   }
 
-  public function setDiskon($diskon) {
-    $this->diskon = $diskon;
-  }
 
   public function getInfoProduk()
   {
@@ -90,6 +117,9 @@ echo "<br>";
 echo $produk2->getInfoProduk();
 echo "<hr>";
 
-// $produk2->harga = 5000; // tdk bisa
 $produk2->setDiskon(50);
 echo $produk2->getHarga();
+echo "<hr>";
+
+$produk1->setPenulis("Juan");
+echo $produk1->getPenulis();
