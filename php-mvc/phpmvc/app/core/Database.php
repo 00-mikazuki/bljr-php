@@ -25,8 +25,8 @@ class Database {
     }
   }
 
-  public function query($sql) {
-    $this->stmt = $this->dbh->prepare($sql);
+  public function query($query) {
+    $this->stmt = $this->dbh->prepare($query);
   }
 
   public function bind($param, $value, $type = null) {
@@ -42,7 +42,7 @@ class Database {
           $type = PDO::PARAM_NULL;
           break;
         default:
-        $type = PDO::PARAM_STR;
+          $type = PDO::PARAM_STR;
       }
     }
 
@@ -61,6 +61,10 @@ class Database {
   public function single() {
     $this->execute();
     return $this->stmt->fetch(PDO::FETCH_ASSOC);
+  }
+
+  public function rowCount() {
+    return $this->stmt->rowCount();
   }
 
 
